@@ -1,0 +1,22 @@
+machine:
+  node:
+    version: 5.0.0
+  post:
+    - npm install -g npm@3.x.x
+
+  environment:
+    CONTINUOUS_INTEGRATION: true
+
+deployment:
+  staging:
+    branch: master
+    codedeploy:
+      client-aurity:
+        application_root: /
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: client-aurity
+            key_pattern: dev/server-{SHORT_COMMIT}-{BUILD_NUM}
+        region: us-west-2
+        deployment_group: client-aurity-dev

@@ -6,8 +6,8 @@
   "scripts": {
     "setup": "./setup.js",
     "start": "nodemon -e js,md ./server.js",
-    "test": "lab -c -L",
-    "test-cover": "lab -c -r html -o ./test/artifacts/coverage.html && open ./test/artifacts/coverage.html"
+    "test_no": "lab -c -L",
+    "test-cover-no": "lab -c -r html -o ./test/artifacts/coverage.html && open ./test/artifacts/coverage.html"
   },
   "author": "Reza Akhavan <jedireza@gmail.com> (http://reza.akhavan.me/)",
   "license": "MIT",
