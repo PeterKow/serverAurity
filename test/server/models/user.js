@@ -16,7 +16,7 @@ const stub = {
 const User = Proxyquire('../../../server/models/user', {
     './account': stub.Account,
     './admin': stub.Admin,
-    bcrypt: stub.bcrypt
+    bcryptjs: stub.bcrypt
 });
 const Admin = require('../../../server/models/admin');
 const Account = require('../../../server/models/account');

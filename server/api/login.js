@@ -3,7 +3,7 @@
 const Boom = require('boom');
 const Joi = require('joi');
 const Async = require('async');
-const Bcrypt = require('bcrypt');
+const Bcrypt = require('bcryptjs');
 const Config = require('../../config');
 
 

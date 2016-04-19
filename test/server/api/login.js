@@ -14,7 +14,7 @@ const Proxyquire = require('proxyquire');
 const AuthPlugin = require('../../../server/auth');
 const MailerPlugin = require('../../../server/mailer');
 const LoginPlugin = require('../../../server/api/login');
-const Bcrypt = require('bcrypt');
+const Bcrypt = require('bcryptjs');
 
 
 const lab = exports.lab = Lab.script();

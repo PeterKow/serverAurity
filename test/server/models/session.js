@@ -11,7 +11,7 @@ const lab = exports.lab = Lab.script();
 const stub = {
     bcrypt: {}
 };
-const Session = Proxyquire('../../../server/models/session', { bcrypt: stub.bcrypt });
+const Session = Proxyquire('../../../server/models/session', { bcryptjs: stub.bcrypt });
 
 
 lab.experiment('Session Class Methods', () => {
