@@ -151,6 +151,12 @@ const manifest = {
             }
         },
         {
+            plugin: './server/api/snippet/snippet',
+            options: {
+                routes: { prefix: '/api' }
+            }
+        },
+        {
             plugin: './server/web/index'
         }
     ]

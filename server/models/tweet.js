@@ -4,7 +4,6 @@ const Q = require('q')
 const Joi = require('joi');
 const ObjectAssign = require('object-assign');
 const BaseModel = require('hapi-mongo-models').BaseModel;
-const Slug = require('slug');
 
 const Tweet = BaseModel.extend({
     constructor: function (attrs) {
@@ -51,7 +50,8 @@ Tweet.schema = Joi.object().keys({
     favorited: Joi.boolean(),
     retweeted: Joi.boolean(),
     lang: Joi.string(),
-    created_at: Joi.string()
+    created_at: Joi.string(),
+    completed: Joi.boolean()
 });
 
 
@@ -83,6 +83,23 @@ Tweet.findByUsername = function (username) {
     var promise = Q.nbind(Tweet.find, Tweet);
     return promise(query)
 };
+
+Tweet.findByIdStr = function (idStr) {
+    const query = { 'id_str': idStr }
+    const promise = Q.nbind(Tweet.find, Tweet)
+
+    return promise(query)
+}
+
+/*
+   UPDATE
+ */
+Tweet.updateByIdStr = function (idStr, document) {
+    const query = { 'id_str': idStr.toString() }
+    const promise = Q.nbind(Tweet.findOneAndUpdate, Tweet)
+
+    return promise(query, document)
+}
 
 
 module.exports = Tweet;

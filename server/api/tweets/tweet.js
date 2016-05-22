@@ -32,7 +32,7 @@ internals.applyRoutes = function (server, next) {
         const limit = parseInt(query.limit,10) || 10;
         const page = query.page;
 
-        console.log('query', query)
+        //console.log('query', query)
 
         //console.log('query', qs.parse(query))
 
