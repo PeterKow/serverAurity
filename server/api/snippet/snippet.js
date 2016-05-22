@@ -23,7 +23,12 @@ internals.applyRoutes = function (server, next) {
 
   function updateSnippet(request, reply) {
     const id = request.params.id;
-    const update = getFieldsToUpdate(request)
+    let update = {}
+    try {
+      update = getFieldsToUpdate(request.query)
+    } catch (error) {
+      return reply(Boom.badRequest(error));
+    }
 
     Tweet
       .updateByIdStr(id, update)
@@ -62,13 +67,31 @@ exports.register.attributes = {
   name: 'snippet'
 }
 
-function getFieldsToUpdate(request){
-
-
-
-  const query = {
-    $set: {
-      completed: JSON.parse(request.query.completed),
+function getFieldsToUpdate(query = {}) {
+  if (query.completed !== undefined) {
+    const fields = {
+      completed: JSON.parse(query.completed),
     }
+    return createUpdateQuery(fields)
+
+  } else if (query.thumbDown !== undefined && query.thumbUp !== undefined) {
+    const fields = {
+      thumbDown: JSON.parse(query.thumbDown),
+      thumbUp: JSON.parse(query.thumbUp),
+    }
+    return createUpdateQuery(fields)
+
+  } else if (query.stared !== undefined)  {
+    const fields = {
+      stared: JSON.parse(query.stared),
+    }
+    return createUpdateQuery(fields)
+
+  }
+}
+
+function createUpdateQuery(fields = {}) {
+  return {
+    $set: fields
   }
 }
