@@ -86,8 +86,14 @@ function getFieldsToUpdate(query = {}) {
       stared: JSON.parse(query.stared),
     }
     return createUpdateQuery(fields)
-
+  } else if (query['tags[0]'] !== undefined)  {
+    const fields = {
+      tags: Object.keys(query).map(key => query[key]),
+    }
+    return createUpdateQuery(fields)
   }
+
+  throw new Error('no fileds to update')
 }
 
 function createUpdateQuery(fields = {}) {
