@@ -38,7 +38,10 @@ internals.applyRoutes = function (server, next) {
 
         // TODO hepijs validation!!!
         const newQuery = {
-            'user.screen_name': query.userName.toLowerCase(),
+            "user.screen_name": query.userName.toLowerCase(),
+            "completed": {
+              "$ne": true
+            },
             "favorite_count": {
                 "$gt": parseInt(query.favoriteCount,10),
             },
