@@ -19,6 +19,7 @@
     "bcryptjs": "^2.3.0",
     "boom": "3.x.x",
     "confidence": "1.x.x",
+    "cron": "^1.1.0",
     "glue": "3.x.x",
     "handlebars": "4.x.x",
     "hapi": "13.x.x",
@@ -35,6 +36,7 @@
     "nodemailer-markdown": "1.x.x",
     "object-assign": "4.x.x",
     "q": "^1.4.1",
+    "request": "^2.72.0",
     "slug": "0.9.x",
     "vision": "4.x.x",
     "visionary": "4.x.x"

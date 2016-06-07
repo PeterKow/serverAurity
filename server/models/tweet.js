@@ -101,5 +101,13 @@ Tweet.updateByIdStr = function (idStr, document) {
     return promise(query, document)
 }
 
+Tweet.upsert = function(tweet) {
+  const query = { 'id_str': tweet.id_str }
+  const promise = Q.nbind(Tweet.findOneAndUpdate, Tweet)
+  const document = tweet
+
+  return promise(query, document,  { upsert: true })
+}
+
 
 module.exports = Tweet;
