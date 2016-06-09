@@ -134,8 +134,6 @@ function checkGet (request, reply) {
           .then((result, error)=> {
             if(error){
               console.log('NO OK - save tweet!', error)
-            } else {
-              console.log('OK - save tweet!', !!result)
             }
           })
       })
@@ -159,8 +157,19 @@ function getAuth(req = {}){
     token: req.token || process.env.TW_ACCESS_TOKEN,
     token_secret: req.secret || process.env.TW_ACCESS_TOKEN_SECRET,
   }
-  console.log('!!!!!!!!!!!!!auth', auth)
   return auth
+}
+
+checkTokens()
+function checkTokens(){
+  if( !process.env.TWITTER_KEY || !process.env.TWITTER_SECRET ||
+    process.env.TW_ACCESS_TOKEN || process.env.TW_ACCESS_TOKEN_SECRET) {
+
+    console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
+    console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
+    console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
+    console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
+  }
 }
 
 

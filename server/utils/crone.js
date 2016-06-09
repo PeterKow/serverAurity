@@ -9,14 +9,14 @@ const userFirends500 = require('../mock/users500.mock.js').userFirends
 const userFirends600 = require('../mock/users600.mock.js').userFirends
 const userFirends700 = require('../mock/users700.mock.js').userFirends
 
-createSyncTask('15 10 * * *', userFirends300)
-createSyncTask('31 10 * * *', userFirends400)
-createSyncTask('47 10 * * *', userFirends500)
-createSyncTask('03 11 * * *', userFirends600)
-createSyncTask('19 11 * * *', userFirends700)
-createSyncTask('35 11 * * *', userFirends)
-createSyncTask('51 11 * * *', userFirends100)
-createSyncTask('07 12 * * *', userFirends200)
+createSyncTask('15 13 * * *', userFirends300)
+createSyncTask('31 13 * * *', userFirends400)
+createSyncTask('47 13 * * *', userFirends500)
+createSyncTask('03 14 * * *', userFirends600)
+createSyncTask('19 14 * * *', userFirends700)
+createSyncTask('35 14 * * *', userFirends)
+createSyncTask('51 14 * * *', userFirends100)
+createSyncTask('07 15 * * *', userFirends200)
 
 function createSyncTask(croneTime, userFriends) {
 
