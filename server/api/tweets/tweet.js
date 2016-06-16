@@ -163,12 +163,15 @@ function getAuth(req = {}){
 checkTokens()
 function checkTokens(){
   if( !process.env.TWITTER_KEY || !process.env.TWITTER_SECRET ||
-    process.env.TW_ACCESS_TOKEN || process.env.TW_ACCESS_TOKEN_SECRET) {
+    !process.env.TW_ACCESS_TOKEN || !process.env.TW_ACCESS_TOKEN_SECRET) {
 
     console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
     console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
     console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
-    console.log('Missing token! Error!!!!!!!!!!!!!!!!!!!!!!!')
+    console.log('process.env.TWITTER_KEY',process.env.TWITTER_KEY)
+    console.log('process.env.TWITTER_SECRET',process.env.TWITTER_SECRET)
+    console.log('process.env.TW_ACCESS_TOKEN',process.env.TW_ACCESS_TOKEN)
+    console.log('process.env.TW_ACCESS_TOKEN_SECRET',process.env.TW_ACCESS_TOKEN_SECRET)
   }
 }
 

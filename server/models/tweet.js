@@ -12,12 +12,9 @@ const Tweet = BaseModel.extend({
     }
 });
 
-
 Tweet._collection = 'tweets';
 
-
 Tweet._idClass = String;
-
 
 Tweet.schema = Joi.object().keys({
     _id: Joi.string(),

@@ -37,6 +37,7 @@
     "object-assign": "4.x.x",
     "q": "^1.4.1",
     "request": "^2.72.0",
+    "rollbar-hapi": "0.0.2",
     "slug": "0.9.x",
     "vision": "4.x.x",
     "visionary": "4.x.x"
